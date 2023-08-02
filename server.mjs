@@ -8,7 +8,8 @@ const todoSchema = mongoose.Schema({
     todo: {
         type: String,
         required: true
-    }
+    },
+    date: new Date()
 })
 
 const Todo = mongoose.model("todos", todoSchema)
@@ -41,7 +42,7 @@ app.post("/todo", async (req, res, next) => {
 })
 
 app.get("/todo/:id", async (req, res, next) => {
-    const todo = await Todo.find({ _id: req.params.id })
+    const todo = await Todo.findById({ _id: req.params.id })
     res.status(200).send({
         todo
     })
