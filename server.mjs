@@ -9,7 +9,10 @@ const todoSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    date: new Date()
+    date: {
+        type : String,
+        required : true
+    }
 })
 
 const Todo = mongoose.model("todos", todoSchema)
